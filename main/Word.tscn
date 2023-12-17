@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3vdoa31p0oi"]
+
+[ext_resource type="PackedScene" uid="uid://c0fcd28fi63nv" path="res://pets/Mima.tscn" id="1_uth80"]
+
+[node name="Word" type="Node2D"]
+
+[node name="Mima" parent="." instance=ExtResource("1_uth80")]
+unique_name_in_owner = true
+position = Vector2(48, 64)
+
+[node name="DialogContainer" type="Node2D" parent="."]

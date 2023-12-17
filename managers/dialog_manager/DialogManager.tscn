@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://brs3l6p8yq6bt"]
+
+[ext_resource type="Script" path="res://managers/dialog_manager/DialogManager.cs" id="1_dnenk"]
+
+[node name="DialogManager" type="Node"]
+script = ExtResource("1_dnenk")
+
+[node name="AtuoLineTimer" type="Timer" parent="."]
+wait_time = 3.0

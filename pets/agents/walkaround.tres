@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UtilityAIOption" load_steps=8 format=3 uid="uid://emek4wlit7fy"]
+
+[ext_resource type="Script" path="res://addons/sharp_utility_ai/core/UtilityAIResponseCurve.cs" id="1_6t163"]
+[ext_resource type="Script" path="res://addons/sharp_utility_ai/core/UtilityAIOption.cs" id="1_cc1pn"]
+[ext_resource type="Script" path="res://addons/sharp_utility_ai/core/UtilityAIConsideration.cs" id="2_3ipyc"]
+[ext_resource type="Script" path="res://addons/sharp_utility_ai/core/UtilityAIBehavior.cs" id="3_pfm46"]
+
+[sub_resource type="Curve" id="Curve_rtame"]
+_data = [Vector2(0.00347222, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.989583, 0.98169), 0.0, 0.0, 0, 0]
+point_count = 2
+script = ExtResource("1_6t163")
+Type = 4
+Exponent = 1
+Slope = 1
+XShift = 0.0
+YShift = 0.0
+
+[sub_resource type="Resource" id="Resource_j3koh"]
+script = ExtResource("2_3ipyc")
+InputKey = "health"
+Invert = false
+ResponseCurve = SubResource("Curve_rtame")
+
+[sub_resource type="Resource" id="Resource_s0j2a"]
+script = ExtResource("3_pfm46")
+Name = "walkaround"
+Aggregation = 0
+Considerations = [SubResource("Resource_j3koh")]
+
+[resource]
+script = ExtResource("1_cc1pn")
+Behavior = SubResource("Resource_s0j2a")
+Context = {}
+Action = {
+"Name": "walkaround"
+}

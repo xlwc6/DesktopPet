@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c30plshcwgx6j"]
+
+[ext_resource type="Script" path="res://components/ai_component/behavior/Hinder.cs" id="1_lcxa5"]
+
+[node name="Hinder" type="Node"]
+script = ExtResource("1_lcxa5")

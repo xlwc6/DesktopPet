@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wu4dsm48r0i2"]
+
+[ext_resource type="Script" path="res://components/emo_component/EmoComponent.cs" id="1_pqgr0"]
+
+[node name="EmoComponent" type="Node"]
+script = ExtResource("1_pqgr0")

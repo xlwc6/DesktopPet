@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3jmxvehuqblq"]
+
+[ext_resource type="Script" path="res://components/ai_component/AiAgentDebugger.cs" id="1_dravx"]
+[ext_resource type="Resource" uid="uid://emek4wlit7fy" path="res://pets/agents/walkaround.tres" id="2_cuh08"]
+[ext_resource type="Resource" uid="uid://d4gudwd1stw8r" path="res://pets/agents/runaway.tres" id="3_qsv43"]
+[ext_resource type="Resource" uid="uid://cwqmxo248ob0r" path="res://pets/agents/hinder.tres" id="4_krw3k"]
+
+[node name="AiAgentDebugger" type="Node2D"]
+script = ExtResource("1_dravx")
+Options = Array[Object]([ExtResource("2_cuh08"), ExtResource("3_qsv43"), ExtResource("4_krw3k")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBox" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/VBoxContainer/HealthBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "健康"
+
+[node name="HealthSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/HealthBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="MoodBox" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoodLabel" type="Label" parent="CanvasLayer/VBoxContainer/MoodBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "心情"
+
+[node name="MoodSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/MoodBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="IntimacyBox" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="IntimacyLabel" type="Label" parent="CanvasLayer/VBoxContainer/IntimacyBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "亲密"
+
+[node name="IntimacySlider" type="HSlider" parent="CanvasLayer/VBoxContainer/IntimacyBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="ChooseBox" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChooseLabel" type="Label" parent="CanvasLayer/VBoxContainer/ChooseBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "行为："

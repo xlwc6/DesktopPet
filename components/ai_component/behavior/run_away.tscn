@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7m4c20rec2be"]
+
+[ext_resource type="Script" path="res://components/ai_component/behavior/RunAway.cs" id="1_wt8xq"]
+
+[node name="RunAway" type="Node"]
+script = ExtResource("1_wt8xq")
