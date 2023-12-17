@@ -38,7 +38,7 @@ public partial class TextBox : MarginContainer
             CustomMinimumSize = new Vector2(CustomMinimumSize.X, Size.Y);
         }
         // 调整显示位置
-        GlobalPosition = new Vector2(GlobalPosition.X - Size.X / 2, GlobalPosition.Y - (Size.Y + 24));
+        GlobalPosition = new Vector2(GlobalPosition.X - Size.X / 2, GlobalPosition.Y - (Size.Y + 12));
         // 延迟显示
         label.Text = "";
         DisplayLetter();

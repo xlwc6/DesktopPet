@@ -39,10 +39,12 @@ public partial class DialogManager : Node
 
     private void ShowTextBox()
     {
+        // 这里还有一种是弹出popup显示对话和属性面板，但是那样的话得考虑子窗口跟随问题
+        // 由于一开始我就没打算采用弹出窗口，所以都是在Mina那个类里重新定位人物得点和边界等，让试图窗口大的足够装下我的面板
         textBox = textBoxScene.Instantiate<TextBox>();
         textBox.Initialize();
         textBox.FinshedDisplay += OnTextBoxFinshedDisplay;
-        GetTree().CurrentScene.GetNode<Node2D>("DialogContainer").AddChild(textBox);
+        GetTree().CurrentScene.GetNode<Control>("DialogPanel").AddChild(textBox);
         textBox.GlobalPosition = textBoxPos;
         textBox.DisplayText(dialogLines[currentIndex]);
         canAdvanceLine = false;

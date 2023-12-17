@@ -65,6 +65,7 @@ public partial class Mima : CharacterBody2D
     public ActionState State { get => actionState; }
     public bool is_moving = false; // 是否移动
     public bool is_running = false; // 是否奔跑
+    public Vector2 CollisionSize { get => collisionSize; }
     protected bool is_follow = false; // 是否跟随鼠标
 
     private float Speed = 100; // 移动速度，奔跑时速度为3倍
@@ -93,9 +94,8 @@ public partial class Mima : CharacterBody2D
         animationTree = GetNode<AnimationTree>("AnimationTree");
         aiTimer = GetNode<Timer>("AiTimer");
         screen = DisplayServer.ScreenGetSize();
-        collisionSize = GetWindow().Size; // 按窗口大小，因为我们使用popup来显示额外的内容，所以窗口就是人物大小
-        // collisionSize = GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size; // 按角色的碰撞区域， 当视窗里需要放其他东西的时候用这个
-        GD.Print(collisionSize);
+        // collisionSize = GetWindow().Size; // 按窗口大小，如果使用popup来显示额外的内容，所以窗口就是人物大小
+        collisionSize = GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size; // 按角色的碰撞区域， 当视窗里需要放其他东西的时候用这个
         boundRect = new(0, 0, (int)(screen.X - collisionSize.X), (int)(screen.Y - collisionSize.Y));
         // 启动AI
         aiTimer.Timeout += OnAiTimerTimeout;
@@ -116,11 +116,6 @@ public partial class Mima : CharacterBody2D
             else
             {
                 is_dragging = false;
-            }
-            // 暂时设置为右键打印属性
-            if (mouseButton.ButtonIndex == MouseButton.Right && mouseButton.Pressed)
-            {
-                GD.Print($"健康：{Health}，情绪：{Mood}，亲密：{Intimacy}");
             }
         }
         // 按下鼠标拖动中

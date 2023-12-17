@@ -1,11 +1,100 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj3vdoa31p0oi"]
+[gd_scene load_steps=6 format=3 uid="uid://dj3vdoa31p0oi"]
 
+[ext_resource type="Script" path="res://main/Word.cs" id="1_e8j6t"]
 [ext_resource type="PackedScene" uid="uid://c0fcd28fi63nv" path="res://pets/Mima.tscn" id="1_uth80"]
+[ext_resource type="Texture2D" uid="uid://bv6s01bn14efi" path="res://assets/water_drop.png" id="2_i6jdf"]
+[ext_resource type="Texture2D" uid="uid://b3os31dq2asch" path="res://assets/heart.png" id="2_kwjfc"]
+[ext_resource type="Texture2D" uid="uid://tqm6fkkldxyl" path="res://assets/stars.png" id="3_hpj7e"]
 
 [node name="Word" type="Node2D"]
+script = ExtResource("1_e8j6t")
 
 [node name="Mima" parent="." instance=ExtResource("1_uth80")]
 unique_name_in_owner = true
-position = Vector2(48, 64)
+position = Vector2(80, 109)
 
-[node name="DialogContainer" type="Node2D" parent="."]
+[node name="DialogPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="AttributePanel" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 50.0
+offset_right = 120.0
+offset_bottom = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AttributePanel"]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 104.0
+
+[node name="HealthInfo" type="TextureRect" parent="AttributePanel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_i6jdf")
+
+[node name="HealthLabel" type="Label" parent="AttributePanel/VBoxContainer/HealthInfo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_colors/font_outline_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoodInfo" type="TextureRect" parent="AttributePanel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_hpj7e")
+
+[node name="MoodLabel" type="Label" parent="AttributePanel/VBoxContainer/MoodInfo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_colors/font_outline_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntimacyInfo" type="TextureRect" parent="AttributePanel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_kwjfc")
+
+[node name="IntimacyLabel" type="Label" parent="AttributePanel/VBoxContainer/IntimacyInfo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_colors/font_outline_color = Color(0.568627, 0.176471, 0.184314, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractionPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 10.0
+offset_bottom = 50.0

@@ -89,7 +89,7 @@ public partial class EmoComponent : Node
         mima.Mood += changeMood;
         float changeIntimacy = GetRnadomChange(1, 3);
         mima.Intimacy += changeIntimacy;
-        // 根据变化值生成对话，然后调用对话框，这里应该接入ChatGPT，目前简单实现吧
+        // 根据变化值生成对话，然后调用对话框，目前简单实现吧
         string msg;
         if (changeHealth + changeMood + changeIntimacy > 0)
         {
@@ -99,8 +99,8 @@ public partial class EmoComponent : Node
         {
             msg = walkaroundNegativies[GD.RandRange(0, walkaroundNegativies.Length - 1)];
         }
-        GD.Print("Mima说: " + msg);
-        dialogManager.StartDialog(mima.GlobalPosition, new List<string>() { msg });
+        var textboxPos = new Vector2(mima.GlobalPosition.X, mima.GlobalPosition.Y - mima.CollisionSize.Y / 2);
+        dialogManager.StartDialog(textboxPos, new List<string>() { msg });
     }
 
     private void DoHinder()
@@ -111,8 +111,8 @@ public partial class EmoComponent : Node
         mima.Intimacy += GetRnadomChange(1, 3);
         // 随机对话
         string msg = hinderFronts[GD.RandRange(0, hinderFronts.Length - 1)];
-        GD.Print("Mima说: " + msg);
-        dialogManager.StartDialog(mima.GlobalPosition, new List<string>() { msg });
+        var textboxPos = new Vector2(mima.GlobalPosition.X, mima.GlobalPosition.Y - mima.CollisionSize.Y / 2);
+        dialogManager.StartDialog(textboxPos, new List<string>() { msg });
     }
 
     private void DoRunAway()
@@ -124,8 +124,8 @@ public partial class EmoComponent : Node
         mima.Intimacy += changeIntimacy;
         // 根据变化值生成对话，然后调用对话框，这里应该接入ChatGPT，目前简单实现吧
         string msg = runawayNegativies[GD.RandRange(0, runawayNegativies.Length - 1)];
-        GD.Print("Mima说: " + msg);
-        dialogManager.StartDialog(mima.GlobalPosition, new List<string>() { msg });
+        var textboxPos = new Vector2(mima.GlobalPosition.X, mima.GlobalPosition.Y - mima.CollisionSize.Y / 2);
+        dialogManager.StartDialog(textboxPos, new List<string>() { msg });
     }
 
     private void DoSleep()
